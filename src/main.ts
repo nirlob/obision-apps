@@ -92,7 +92,7 @@ class ObisionAppsApplication {
     // Create the main window
     const window = new Adw.ApplicationWindow({
       application: this.application as any,
-      title: 'Obision Applications Install',
+      title: 'Application Installer',
     });
 
     // Save window state before closing
@@ -205,7 +205,7 @@ class ObisionAppsApplication {
     const aboutDialog = new Adw.AboutWindow({
       transient_for: parent,
       modal: true,
-      application_name: 'Obision Applications Install',
+      application_name: 'Obision Apps',
       application_icon: 'com.obision.ObisionApps',
       developer_name: 'Jose Francisco Gonzalez',
       version: '1.0.0',

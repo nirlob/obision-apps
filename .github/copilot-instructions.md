@@ -68,7 +68,7 @@ private dataService = DataService.instance;
 
 ## UI Development
 - Edit XML in `data/ui/main-window.ui` for layout changes
-- Register resources in `data/com.obision.obision-install.gresource.xml`
+- Register resources in `data/com.obision.ObisionApps.gresource.xml`
 - Use CSS classes like `boxed-list` for Adwaita styling
 - Connect signals via `.connect()` in TypeScript, not XML handlers (commented out in UI files)
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/obision/obision-install">
+  <gresource prefix="/com/obision/ObisionApps">
     <file preprocess="xml-stripblanks">data/ui/main-window.ui</file>
   </gresource>
 </gresources>

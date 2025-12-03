@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Detect if running in Flatpak or system
-if [ -f "/app/share/@app_id@/main.js" ]; then
-    exec gjs -m /app/share/@app_id@/main.js "$@"
+if [ -f "/app/share/obision-apps/main.js" ]; then
+    exec gjs -m /app/share/obision-apps/main.js "$@"
 else
-    exec gjs -m /usr/share/@app_id@/main.js "$@"
+    exec gjs -m /usr/share/obision-apps/main.js "$@"
 fi

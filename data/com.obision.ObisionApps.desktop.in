@@ -1,7 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Application Installer
+Name=Applications installer
 Comment=A modern application installer and package manager
 Icon=com.obision.ObisionApps
 Exec=obision-apps

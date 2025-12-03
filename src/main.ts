@@ -92,7 +92,7 @@ class ObisionAppsApplication {
     // Create the main window
     const window = new Adw.ApplicationWindow({
       application: this.application as any,
-      title: 'Application Installer',
+      title: 'Applications installer',
     });
 
     // Save window state before closing

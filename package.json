@@ -1,6 +1,6 @@
 {
   "name": "obision-apps",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Rapid applications installer",
   "main": "builddir/main.js",
   "scripts": {
@@ -21,7 +21,8 @@
     "deb-build": "dpkg-buildpackage -us -uc -b && mkdir -p builddir && mv ../obision-apps_*.deb builddir/obision-apps.deb && mv ../obision-apps_*.buildinfo builddir/ 2>/dev/null || true && mv ../obision-apps_*.changes builddir/ 2>/dev/null || true",
     "deb-install": "sudo dpkg -i builddir/obision-apps.deb && sudo apt-get install -f",
     "deb-uninstall": "sudo apt-get remove obision-apps -y",
-    "deb-clean": "dh_clean || true"
+    "deb-clean": "dh_clean || true",
+    "release": "./scripts/release.sh"
   },
   "keywords": [
     "gnome",

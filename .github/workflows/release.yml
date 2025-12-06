@@ -21,20 +21,11 @@ jobs:
       with:
         node-version: '20'
         
-    - name: Install dependencies
+    - name: Install build dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install -y debhelper meson ninja-build libglib2.0-dev gjs dpkg-dev build-essential
-        npm install
-        
-    - name: Build TypeScript
-      run: npm run build
-        
-    - name: Setup Meson
-      run: meson setup builddir --prefix=/usr
-      
-    - name: Compile with Meson
-      run: meson compile -C builddir
+        sudo apt-get install -y devscripts equivs
+        sudo mk-build-deps -i -r -t "apt-get -y --no-install-recommends" debian/control
       
     - name: Build DEB package
       run: |

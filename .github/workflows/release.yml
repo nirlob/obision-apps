@@ -53,3 +53,44 @@ jobs:
         generate_release_notes: true
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Upload to obision-packages repository
+      env:
+        DEPLOY_KEY: ${{ secrets.OBISION_PACKAGES_DEPLOY_KEY }}
+      run: |
+        # Extract version from tag
+        VERSION=${GITHUB_REF#refs/tags/v}
+        echo "Version: $VERSION"
+        
+        # Configure git
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        
+        # Setup SSH key for obision-packages repo
+        mkdir -p ~/.ssh
+        echo "$DEPLOY_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        
+        # Clone obision-packages repository
+        cd ..
+        git clone git@github.com:nirlob/obision-packages.git
+        cd obision-packages
+        
+        # Create debs directory if it doesn't exist
+        mkdir -p debs
+        
+        # Copy the .deb file with versioned name
+        cp ../obision-app-optional-soft/builddir/obision-app-optional-soft.deb \
+           debs/obision-app-optional-soft_${VERSION}_amd64.deb
+        
+        # Regenerate Packages file
+        dpkg-scanpackages --multiversion debs > Packages
+        gzip -k -f Packages
+        
+        # Commit and push
+        git add debs/obision-app-optional-soft_${VERSION}_amd64.deb Packages Packages.gz
+        git commit -m "Add obision-app-optional-soft $VERSION"
+        git push origin master
+        
+        echo "✅ Package uploaded to obision-packages repository"

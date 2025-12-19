@@ -23,7 +23,7 @@ class ObisionAppOptionalSoftApplication {
   constructor() {
     // Create the application
     this.application = new Adw.Application({
-      application_id: 'com.obision.ObisionAppOptionalSoft',
+      application_id: 'com.obision.app.optional-soft',
       flags: Gio.ApplicationFlags.DEFAULT_FLAGS,
     });
 
@@ -208,7 +208,7 @@ class ObisionAppOptionalSoftApplication {
       transient_for: parent,
       modal: true,
       application_name: 'Obision App Optional Soft',
-      application_icon: 'com.obision.ObisionAppOptionalSoft',
+      application_icon: 'com.obision.app.optional-soft',
       developer_name: 'Jose Francisco Gonzalez',
       version: '1.0.0',
       developers: ['Jose Francisco Gonzalez <jfgs1609@gmail.com>'],

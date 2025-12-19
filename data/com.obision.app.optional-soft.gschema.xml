@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schemalist gettext-domain="obision-app-optional-soft">
-  <schema id="com.obision.obision-app-optional-soft" path="/com/obision/obision-app-optional-soft/">
+  <schema id="com.obision.app.optional-soft" path="/com/obision/app/optional-soft/">
     <key name="window-width" type="i">
       <default>1000</default>
       <summary>Window width</summary>

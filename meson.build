@@ -6,7 +6,7 @@ project('obision-app-optional-soft',
 gnome = import('gnome')
 
 # Application ID
-app_id = 'com.obision.ObisionAppOptionalSoft'
+app_id = 'com.obision.app.optional-soft'
 
 # Configuration
 conf = configuration_data()

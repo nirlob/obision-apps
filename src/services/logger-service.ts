@@ -11,7 +11,7 @@ export enum LogLevel {
 
 export class LoggerService {
   private static _instance: LoggerService;
-  private readonly APP_ID = 'com.obision.ObisionAppOptionalSoft';
+  private readonly APP_ID = 'com.obision.app.optional-soft';
 
   private constructor() {}
 

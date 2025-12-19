@@ -5,7 +5,7 @@ GNOME application installer built with TypeScript, GTK4, and Libadwaita for mana
 
 **Critical constraint**: GJS (GNOME JavaScript runtime) doesn't support ES modules or CommonJS - all code must be in global scope with direct class references.
 
-**Application ID**: `com.obision.ObisionAppOptionalSoft` (used in GSettings, desktop files, GResource paths)
+**Application ID**: `com.obision.app.optional-soft` (used in GSettings, desktop files, GResource paths)
 
 ## Critical Build System ⚠️
 **NEVER use `tsc` directly.** Always use `npm run build`, which orchestrates:
@@ -115,7 +115,7 @@ Icon paths resolved similarly in `resolveIconPath()`. Always relative to found d
 - Import from `@girs` in TypeScript: `import Gtk from "@girs/gtk-4.0"`
 - Build script converts to: `const { Gtk } = imports.gi;`
 - **Adwaita widgets**: Prefer `Adw.ExpanderRow`, `Adw.SwitchRow` for modern GNOME UI
-- **Resource loading**: Try GResource first (`add_from_resource('/com/obision/ObisionApps/ui/...')`), fallback to file paths
+- **Resource loading**: Try GResource first (`add_from_resource('/com/obision/app/optional-soft/ui/...')`), fallback to file paths
 - **File I/O**: Use `Gio.File.new_for_path()` + `load_contents()` for JSON (synchronous in GJS)
 - **Subprocess execution**: `Gio.Subprocess` with `STDOUT_PIPE | STDERR_PIPE`, then `communicate_utf8()` for synchronous output
 - **Async ops**: `GLib.timeout_add()` for deferred execution (e.g., `loadData()` waits for UI ready)

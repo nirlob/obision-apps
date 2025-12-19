@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <gresources>
-  <gresource prefix="/com/obision/ObisionAppOptionalSoft">
+  <gresource prefix="/com/obision/app/optional-soft">
     <file preprocess="xml-stripblanks">data/ui/main-window.ui</file>
   </gresource>
 </gresources>

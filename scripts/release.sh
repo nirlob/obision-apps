@@ -37,7 +37,7 @@ AUTHOR_NAME="Jose Francisco Gonzalez"
 AUTHOR_EMAIL="jfgs1609@gmail.com"
 
 cat > debian/changelog.tmp << EOF
-obision-apps ($NEW_VERSION) unstable; urgency=medium
+obision-app-optional-soft ($NEW_VERSION) unstable; urgency=medium
 
   * Release version $NEW_VERSION
 
@@ -71,4 +71,4 @@ echo "  2. Generate the .deb package"
 echo "  3. Create a GitHub release"
 echo "  4. Attach the .deb file to the release"
 echo ""
-echo "Check progress at: https://github.com/nirlob/obision-apps/actions"
+echo "Check progress at: https://github.com/nirlob/obision-app-optional-soft/actions"

@@ -21,7 +21,7 @@ Depends: ${misc:Depends},
          libadwaita-1-0,
          libgtk-4-1,
          flatpak
-Description: Rapid applications installer for GNOME
+Description: Optional applications installer for GNOME
  Obision Install is a modern GTK4/Libadwaita application that provides
  a simple interface to install and manage applications on your system.
  .

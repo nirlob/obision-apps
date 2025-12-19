@@ -1,7 +1,7 @@
 {
   "name": "obision-app-optional-soft",
   "version": "0.1.0",
-  "description": "Rapid applications installer",
+  "description": "Optional applications installer",
   "main": "builddir/main.js",
   "scripts": {
     "build": "node scripts/build.js",

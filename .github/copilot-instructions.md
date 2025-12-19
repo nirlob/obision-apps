@@ -5,6 +5,8 @@ GNOME application installer built with TypeScript, GTK4, and Libadwaita for mana
 
 **Critical constraint**: GJS (GNOME JavaScript runtime) doesn't support ES modules or CommonJS - all code must be in global scope with direct class references.
 
+**Application ID**: `com.obision.ObisionAppOptionalSoft` (used in GSettings, desktop files, GResource paths)
+
 ## Critical Build System ⚠️
 **NEVER use `tsc` directly.** Always use `npm run build`, which orchestrates:
 1. Runs `tsc` to compile TypeScript → CommonJS in `builddir/`
@@ -33,11 +35,20 @@ npm run dev            # TypeScript watch mode (tsc --watch, still need npm run 
 ```
 
 ### Packaging & Distribution
+
+**Debian/Native Install:**
 ```bash
 npm run meson-install  # System install → /usr/share/obision-app-optional-soft/ (requires sudo)
 npm run deb-build      # Build .deb → ../obision-app-optional-soft_*.deb
+npm run install-data   # Copy applications.json + icons to /var/lib/ (alternative data location)
 npm run clean          # Clean builddir/ + mesonbuilddir/ (recommended before packaging)
 ```
+
+**Versioning:**
+```bash
+npm run release        # Auto-increment minor version + update all manifests
+```
+Manual version edits must sync: `package.json`, `meson.build` version, `debian/changelog` first entry
 
 **Debugging tip**: Check `builddir/main.js` after build to verify concatenation worked. If service methods are undefined at runtime, verify concatenation order in [`scripts/build.js`](scripts/build.js).
 
@@ -91,9 +102,10 @@ Icon paths resolved similarly in `resolveIconPath()`. Always relative to found d
 ## Package Management Integration
 - **Flatpak**: `flatpak info <package>` to check install, `flatpak install flathub <package>` to install
 - **Debian**: `apt show <package>` to check install, `pkexec apt-get install <package>` to install (requires PolicyKit)
-- **Execut/APTion**: `UtilsService.executeCommand(cmd, args)` uses `Gio.Subprocess` with `STDOUT_PIPE | STDERR_PIPE`
+- **Execution**: `UtilsService.executeCommand(cmd, args)` uses `Gio.Subprocess` with `STDOUT_PIPE | STDERR_PIPE`
 - **Status check**: `isApplicationInstalled(app)` returns `stdout.trim().length > 0` (empty output = not installed)
 - **Install operations**: Triggered by `InstallDialog` which shows progress, runs commands synchronously with `communicate_utf8()`
+- **GNOME Shell folders**: Apps can auto-organize into category folders via GSettings (`org.gnome.desktop.app-folders`)
 
 ## GJS/GTK4 Specifics
 - Import from `@girs` in TypeScript: `import Gtk from "@girs/gtk-4.0"`

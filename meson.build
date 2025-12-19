@@ -94,10 +94,6 @@ install_data('data/icons/hicolor/256x256/apps/' + app_id + '.png',
   install_dir: datadir / 'icons' / 'hicolor' / '256x256' / 'apps'
 )
 
-install_data('data/icons/hicolor/scalable/apps/' + app_id + '.svg',
-  install_dir: datadir / 'icons' / 'hicolor' / 'scalable' / 'apps'
-)
-
 
 
 # Create launcher script

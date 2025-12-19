@@ -1,0 +1,13 @@
+obision-app-optional-soft (0.2.0) unstable; urgency=medium
+
+  * Release version 0.2.0
+
+ -- Jose Francisco Gonzalez <jfgs1609@gmail.com>  Fri, 19 Dec 2025 02:10:11 +0100
+
+obision-app-optional-soft (0.2.0) unstable; urgency=medium
+
+  * Initial release
+  * Update copilot instructions and fix GJS runtime issues
+  * Removed Flatpak-related files
+
+ -- Jose Francisco Gonzalez <jfgs1609@gmail.com>  Thu, 19 Dec 2025 02:00:00 +0100

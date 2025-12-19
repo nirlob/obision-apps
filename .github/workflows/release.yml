@@ -80,6 +80,9 @@ jobs:
         # Create debs directory if it doesn't exist
         mkdir -p debs
         
+        # Remove old versions of the package
+        rm -f debs/obision-app-optional-soft_*.deb
+        
         # Copy the .deb file with versioned name
         cp ../obision-app-optional-soft/builddir/obision-app-optional-soft.deb \
            debs/obision-app-optional-soft_${VERSION}_all.deb
@@ -88,9 +91,10 @@ jobs:
         dpkg-scanpackages --arch all --multiversion debs /dev/null > Packages
         gzip -k -f Packages
         
-        # Commit and push
-        git add debs/obision-app-optional-soft_${VERSION}_all.deb Packages Packages.gz
-        git commit -m "Add obision-app-optional-soft $VERSION"
+        # Commit and push (including deletions)
+        git add -A debs/
+        git add Packages Packages.gz
+        git commit -m "Update obision-app-optional-soft to version $VERSION"
         git push origin master
         
         echo "✅ Package uploaded to obision-packages repository"
